@@ -1,0 +1,27 @@
+{
+  "name": "agent-code-cycle",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch --env-file=.env src/index.ts",
+    "start": "tsx --env-file=.env src/index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.7",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@ai-sdk/anthropic": "^4.0.27",
+    "@ai-sdk/google": "^4.0.31",
+    "@ai-sdk/openai": "^4.0.27",
+    "@ai-sdk/xai": "^4.0.21",
+    "ai": "^7.0.41",
+    "dotenv": "^17.2.3",
+    "ink": "^6.5.1",
+    "ink-spinner": "^5.0.0",
+    "react": "^19.2.0",
+    "zod": "^4.1.13"
+  }
+}
