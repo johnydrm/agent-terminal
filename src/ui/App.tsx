@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react";
 import { Box, Text, useApp } from "ink";
 import type { ModelMessage } from "ai";
+
 import { runAgent } from "../agent/runAgent.ts";
 import { MessageList, type Message } from "./components/MessageList.tsx";
 import { ToolCall, type ToolCallProps } from "./components/ToolCall.tsx";

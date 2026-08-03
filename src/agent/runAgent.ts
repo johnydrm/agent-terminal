@@ -1,13 +1,11 @@
 import { NoOutputGeneratedError, streamText, type ModelMessage } from "ai";
-import { xai } from "@ai-sdk/xai";
+import { deepSeek } from "@ai-sdk/deepseek";
 
 import { tools } from "./tools/tools.ts";
 import { SYSTEM_PROMPT } from "./system/prompt.ts";
 import { filterCompatibleMessages } from "./system/filterMessages.ts";
 import { handleStreamChunk } from "./handleStreamChunk.ts";
 import type { AgentCallbacks } from "../types.ts";
-
-const MODEL_NAME = "grok-4-1-fast-reasoning";
 
 export async function runAgent(
   userMessage: string,
@@ -25,7 +23,7 @@ export async function runAgent(
 
   while (true) {
     const { stream, finalStep } = streamText({
-      model: xai(MODEL_NAME),
+      model: deepSeek("deepseek-v4-pro"),
       instructions: SYSTEM_PROMPT,
       messages,
       tools,
