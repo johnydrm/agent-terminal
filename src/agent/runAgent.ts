@@ -7,6 +7,8 @@ import { filterCompatibleMessages } from "./system/filterMessages.ts";
 import { handleStreamChunk } from "./handleStreamChunk.ts";
 import type { AgentCallbacks } from "../types.ts";
 
+const MODEL_NAME = "deepseek-v4-pro";
+
 export async function runAgent(
   userMessage: string,
   conversationHistory: ModelMessage[],
@@ -23,7 +25,7 @@ export async function runAgent(
 
   while (true) {
     const { stream, finalStep } = streamText({
-      model: deepSeek("deepseek-v4-pro"),
+      model: deepSeek(MODEL_NAME),
       instructions: SYSTEM_PROMPT,
       messages,
       tools,
