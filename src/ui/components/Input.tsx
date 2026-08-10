@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Box, Text, useInput } from "ink";
 
 interface InputProps {
@@ -22,6 +22,7 @@ export function Input({ onSubmit, disabled = false }: InputProps) {
 
     if (key.backspace || key.delete) {
       setValue((prev) => prev.slice(0, -1));
+
       return;
     }
 

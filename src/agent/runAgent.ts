@@ -1,13 +1,17 @@
 import { NoOutputGeneratedError, streamText, type ModelMessage } from "ai";
 import { deepSeek } from "@ai-sdk/deepseek";
 
-import { tools } from "./tools/tools.ts";
+import { getDateTime } from "./tools/dateTime";
 import { SYSTEM_PROMPT } from "./system/prompt.ts";
 import { filterCompatibleMessages } from "./system/filterMessages.ts";
 import { handleStreamChunk } from "./handleStreamChunk.ts";
 import type { AgentCallbacks } from "../types.ts";
 
 const MODEL_NAME = "deepseek-v4-pro";
+
+const tools = {
+  getDateTime,
+};
 
 export async function runAgent(
   userMessage: string,

@@ -1,10 +1,11 @@
 import { Box, Text } from "ink";
 
 const User: string = "user";
+const Assistant: string = "assistant";
 
 export interface Message {
   content: string;
-  role: "user" | "assistant";
+  role: typeof User | typeof Assistant;
 }
 
 interface MessageListProps {
@@ -17,7 +18,7 @@ export function MessageList({ messages }: MessageListProps) {
       {messages.map((message, index) => (
         <Box key={index} flexDirection="column">
           <Text color={message.role === User ? "blue" : "green"} bold>
-            {message.role === User ? "› You" : "› Assistant"}
+            {message.role === User ? "› You" : `› ${Assistant}`}
           </Text>
           <Box marginLeft={2}>
             <Text>{message.content}</Text>
